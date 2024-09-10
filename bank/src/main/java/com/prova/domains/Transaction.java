@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import org.hibernate.validator.constraints.UUID;
 
+import com.prova.domains.enums.TransactionType;
+
 public class Transaction {
 
     private UUID id;
@@ -20,7 +22,7 @@ public class Transaction {
         this.date = date;
         this.transactionType = transactionType;
     }
-    
+
     public UUID getId() {
         return id;
     }
