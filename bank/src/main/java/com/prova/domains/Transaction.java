@@ -10,14 +10,17 @@ public class Transaction {
     private double amount;
     private LocalDate date;
     private TransactionType transactionType;
+
     public Transaction() {
     }
+
     public Transaction(UUID id, double amount, LocalDate date, TransactionType transactionType) {
         this.id = id;
         this.amount = amount;
         this.date = date;
         this.transactionType = transactionType;
     }
+    
     public UUID getId() {
         return id;
     }
