@@ -1,37 +1,28 @@
 package com.prova.domains;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
 
 @Entity
-
-@Table(
-    name = "Customer"
-)
+@Table(name = "customer")
 public class Customer {
     
     
-    @Id
+    
     private int id;
     private String name;
     private String address;
     private Account account;
+    @Column(unique = true)
     private String cpf;
    
-    
-    
-    
-    
     public Customer() {
     }
 
-
-        
-    
-        public Customer(int id, String name, String address, Account account, String cpf) {
+    public Customer(int id, String name, String address, Account account, String cpf) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -39,79 +30,72 @@ public class Customer {
         this.cpf = cpf;
     }
 
-
-
-
-        public int getId() {
-            return id;
-        }
-
-
-
-
-        public void setId(int id) {
-            this.id = id;
-        }
+    public int getId() {
+        return id;
+    }
 
 
 
 
-        public String getName() {
-            return name;
-        }
+    public void setId(int id) {
+        this.id = id;
+    }
 
 
 
 
-        public void setName(String name) {
-            this.name = name;
-        }
+    public String getName() {
+        return name;
+    }
 
 
 
 
-        public String getAddress() {
-            return address;
-        }
+    public void setName(String name) {
+        this.name = name;
+    }
 
 
 
 
-        public void setAddress(String address) {
-            this.address = address;
-        }
+    public String getAddress() {
+        return address;
+    }
 
 
 
 
-        public Account getAccount() {
-            return account;
-        }
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
 
 
 
-        public void setAccount(Account account) {
-            this.account = account;
-        }
+    public Account getAccount() {
+        return account;
+    }
 
 
 
 
-        public String getCpf() {
-            return cpf;
-        }
+    public void setAccount(Account account) {
+        this.account = account;
+    }
 
 
 
 
-        public void setCpf(String cpf) {
-            this.cpf = cpf;
-        }
+    public String getCpf() {
+        return cpf;
+    }
 
 
 
 
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
 
 

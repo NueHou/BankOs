@@ -5,32 +5,30 @@ import com.prova.domains.enums.AccountType;
 
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(
-   name = "Account"
-)
+@Table(name = "account")
 public class Account {
-   @Id
+
+   
    private int id;
    private double balance;
-   private AccountType accountType;
+   private AccountType tipo;
    private AccountStatus status;
 
    public Account() {
    }
 
-   public Account(int id, double balance, AccountType accountType, AccountStatus status) {
+   public Account(int id, double balance, AccountType tipo, AccountStatus status) {
       this.id = id;
       this.balance = balance;
-      this.accountType = accountType;
+      this.tipo = tipo;
       this.status = status;
    }
 
    public int getId() {
-      return this.id;
+      return id;
    }
 
    public void setId(int id) {
@@ -38,28 +36,29 @@ public class Account {
    }
 
    public double getBalance() {
-      return this.balance;
+      return balance;
    }
 
    public void setBalance(double balance) {
       this.balance = balance;
    }
 
-   public AccountType getAccountType() {
-      return this.accountType;
+   public AccountType getTipo() {
+      return tipo;
    }
 
-   public void setAccountType(AccountType accountType) {
-      this.accountType = accountType;
+   public void setTipo(AccountType tipo) {
+      this.tipo = tipo;
    }
 
    public AccountStatus getStatus() {
-      return this.status;
+      return status;
    }
 
    public void setStatus(AccountStatus status) {
       this.status = status;
    }
 
+   
    
 }
