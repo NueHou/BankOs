@@ -2,12 +2,14 @@ package com.prova.domains;
 
 import java.time.LocalDate;
 
-import org.hibernate.validator.constraints.UUID;
+import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.prova.domains.enums.TransactionType;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -16,6 +18,7 @@ import jakarta.persistence.Table;
 public class Transaction {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private double amount;
     @JsonFormat(pattern = "dd/MM/yyyy")

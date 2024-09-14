@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.prova.dtos.BankDTO;
 import com.prova.services.BankService;
 
 @RestController
@@ -15,6 +16,11 @@ public class BankResource {
 
     @Autowired
     private BankService bankService;
+
+    @GetMapping
+    public ResponseEntity<List<BankDTO>> findAll(){
+        return ResponseEntity.ok().body(bankService.findAll());
+    }
 
     
 }
