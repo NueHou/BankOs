@@ -1,37 +1,61 @@
 package com.prova.domains;
 
-import jakarta.persistence.Column;
+import java.util.UUID;
+
+
+import com.prova.dtos.BranchDTO;
+
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "branch")
 public class Branch {
 
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+    
     private String name;
-    private Account accounts;
-    @Column(unique = true)
+
+    @ManyToOne
+    private Account account;
+
     private String cnpj;
 
     public Branch() {
+        super();
     }
 
-    public Branch(Integer id, String name, Account accounts, String cnpj) {
+    public Branch(BranchDTO obj){
+        this.id = obj.getId();
+        this.name = obj.getName();
+        this.account = obj.getAccount();
+        this.cnpj = obj.getCnpj();
+    }
+
+    
+
+    public Branch(UUID id, String name, Account account, String cnpj) {
         this.id = id;
         this.name = name;
-        this.accounts = accounts;
+        this.account = account;
         this.cnpj = cnpj;
     }
 
-    public Integer getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(UUID id) {
         this.id = id;
     }
-
+    
     public String getName() {
         return name;
     }
@@ -40,12 +64,12 @@ public class Branch {
         this.name = name;
     }
 
-    public Account getAccounts() {
-        return accounts;
+    public Account getAccount() {
+        return account;
     }
 
-    public void setAccounts(Account accounts) {
-        this.accounts = accounts;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     public String getCnpj() {

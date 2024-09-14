@@ -22,7 +22,6 @@ public class CustomerDTO {
         this.address = obj.getAddress();
         this.account = obj.getAccount();
         this.cpf = obj.getCpf();
-
     }
 
 

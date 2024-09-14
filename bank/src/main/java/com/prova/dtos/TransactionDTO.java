@@ -15,7 +15,7 @@ public class TransactionDTO {
     private double amount;
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate date = LocalDate.now();
-    private TransactionType transaction;
+    private TransactionType transactionType;
     
     
     public TransactionDTO() {
@@ -24,8 +24,8 @@ public class TransactionDTO {
     public TransactionDTO(Transaction obj) {
         this.id = obj.getId();
         this.amount = obj.getAmount();
-        this.date = obj.getCreatedAt();
-        this.transaction = obj.getTransactionType();
+        this.date = obj.getDate();
+        this.transactionType = obj.getTransactionType();
     }
 
     public UUID getId() {
@@ -52,12 +52,12 @@ public class TransactionDTO {
         this.date = date;
     }
 
-    public TransactionType getTransaction() {
-        return transaction;
+    public TransactionType getTransactionType() {
+        return transactionType;
     }
 
-    public void setTransaction(TransactionType transaction) {
-        this.transaction = transaction;
+    public void setTransactionType(TransactionType transactionType) {
+        this.transactionType = transactionType;
     }
     
 }

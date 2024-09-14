@@ -33,13 +33,13 @@ public class DBService {
 
     public void initDB(){
 
-        Account account1 = new Account(0, 44.000, AccountType.SAVINGS, AccountStatus.ACTIVE);
+        Account account1 = new Account(1, 44.000, AccountType.SAVINGS, AccountStatus.ACTIVE);
 
-        Customer customer1 = new Customer(0, "Vera Lucia", "Rua 01", account1, "123.311.313.11");
+        Customer customer1 = new Customer(1, "Vera Lucia", "Rua 01", account1, "123.311.313.11");
 
         Branch branch1 = new Branch(null, "Agencia 01", account1, "1111.3133.0001.12");
 
-        Bank bank1 = new Bank(null, "Cropss", customer1, "1333.3133.0001.12", branch1);
+        Bank bank1 = new Bank(1, "Cropss", customer1, "1333.3133.0001.12", branch1);
 
         Transaction transaction1 = new Transaction(null, 4.000, TransactionType.DEPOSIT);
 

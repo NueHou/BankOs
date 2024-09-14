@@ -1,7 +1,11 @@
 package com.prova.domains;
 
+import com.prova.dtos.CustomerDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 
@@ -11,15 +15,24 @@ import jakarta.persistence.Table;
 public class Customer {
     
     
-    
+    @Id
     private int id;
     private String name;
     private String address;
+    @ManyToOne
     private Account account;
     @Column(unique = true)
     private String cpf;
    
     public Customer() {
+    }
+
+    public Customer(CustomerDTO obj) {
+        this.id = obj.getId();
+        this.name = obj.getName();
+        this.address = obj.getAddress();
+        this.account = obj.getAccount();
+        this.cpf = obj.getCpf();
     }
 
     public Customer(int id, String name, String address, Account account, String cpf) {

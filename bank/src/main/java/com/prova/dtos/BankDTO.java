@@ -4,12 +4,15 @@ import com.prova.domains.Bank;
 import com.prova.domains.Branch;
 import com.prova.domains.Customer;
 
+
 public class BankDTO {
+
     private Integer id;
     private String name;
-    private Customer customer;
+    private Customer customers;
     private String cnpj;
-    private Branch branch;
+    
+    private Branch cnpjBranch;
    
 
     public BankDTO() {
@@ -18,10 +21,9 @@ public class BankDTO {
     public BankDTO(Bank obj){
         this.id = obj.getId();
         this.name = obj.getName();
-        this.customer = obj.getCustomers();
+        this.customers = obj.getCustomers();
         this.cnpj = obj.getCnpj();
-        this.branch = obj.getCnpjBranch();
-
+        this.cnpjBranch = obj.getCnpjBranch();
     }
 
     public Integer getId() {
@@ -40,12 +42,12 @@ public class BankDTO {
         this.name = name;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Customer getCustomers() {
+        return customers;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomers(Customer customer) {
+        this.customers = customer;
     }
 
     public String getCnpj() {
@@ -56,13 +58,15 @@ public class BankDTO {
         this.cnpj = cnpj;
     }
 
-    public Branch getBranch() {
-        return branch;
+    public Branch getCnpjBranch() {
+        return cnpjBranch;
     }
 
-    public void setBranch(Branch branch) {
-        this.branch = branch;
+    public void setCnpjBranch(Branch cnpjBranch) {
+        this.cnpjBranch = cnpjBranch;
     }
+
+    
     
 
 }

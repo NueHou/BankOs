@@ -1,22 +1,36 @@
 package com.prova.domains;
 
+import com.prova.dtos.BankDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "bank")
 public class Bank {
 
+    @Id
     private Integer id;
     private String name;
+    @ManyToOne
     private Customer customers;
     @Column(unique = true)
     private String cnpj;
-    @Column(unique = true)
+    @ManyToOne
     private Branch cnpjBranch;
 
     public Bank() {
+    }
+
+    public Bank(BankDTO obj){
+        this.id = obj.getId();
+        this.name = obj.getName();
+        this.customers = obj.getCustomers();
+        this.cnpj = obj.getCnpj();
+        this.cnpjBranch = obj.getCnpjBranch();
     }
 
     public Bank(Integer id, String name, Customer customers, String cnpj, Branch cnpjBranch) {

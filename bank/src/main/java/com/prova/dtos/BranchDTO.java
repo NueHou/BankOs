@@ -2,11 +2,15 @@ package com.prova.dtos;
 
 
 
+import java.util.UUID;
+
 import com.prova.domains.Account;
 import com.prova.domains.Branch;
 
 public class BranchDTO {
-    protected Integer id;
+
+    
+    protected UUID id;
     protected String name;
     protected Account account;
     protected String cnpj;
@@ -18,20 +22,12 @@ public class BranchDTO {
     public BranchDTO(Branch obj){
         this.id = obj.getId();
         this.name = obj.getName();
-        this.account = obj.getAccounts();
+        this.account = obj.getAccount();
         this.cnpj = obj.getCnpj();
-
     }
 
 
-    public Integer getId() {
-        return id;
-    }
-
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    
 
 
     public String getName() {
@@ -61,6 +57,14 @@ public class BranchDTO {
 
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     

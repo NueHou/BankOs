@@ -3,22 +3,33 @@ package com.prova.domains;
 
 import com.prova.domains.enums.AccountStatus;
 import com.prova.domains.enums.AccountType;
+import com.prova.dtos.AccountDTO;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "account")
 public class Account {
 
-   private int id;
+   @Id
+   private Integer id;
    private double balance;
    private AccountType tipo;
    private AccountStatus status;
 
    public Account() {
+      super();
    }
+
+   public Account(AccountDTO obj) {
+      this.id = obj.getId();
+      this.balance = obj.getBalance();
+      this.tipo = obj.getTipo();
+      this.status = obj.getStatus();
+  }
 
    public Account(int id, double balance, AccountType tipo, AccountStatus status) {
       this.id = id;

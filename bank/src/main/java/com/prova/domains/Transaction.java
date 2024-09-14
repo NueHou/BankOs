@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.prova.domains.enums.TransactionType;
+import com.prova.dtos.TransactionDTO;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,10 +23,17 @@ public class Transaction {
     private UUID id;
     private double amount;
     @JsonFormat(pattern = "dd/MM/yyyy")
-    private LocalDate createdAt = LocalDate.now();
+    private LocalDate date = LocalDate.now();
     private TransactionType transactionType;
 
     public Transaction() {
+    }
+
+    public Transaction(TransactionDTO obj) {
+        this.id = obj.getId();
+        this.amount = obj.getAmount();
+        this.date = obj.getDate();
+        this.transactionType = obj.getTransactionType();
     }
 
     public Transaction(UUID id, double amount, TransactionType transactionType) {
@@ -50,12 +58,12 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public LocalDate getCreatedAt() {
-        return createdAt;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public TransactionType getTransactionType() {
