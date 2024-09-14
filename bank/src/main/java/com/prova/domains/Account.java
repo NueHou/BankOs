@@ -1,5 +1,6 @@
 package com.prova.domains;
 
+
 import com.prova.domains.enums.AccountStatus;
 import com.prova.domains.enums.AccountType;
 
@@ -11,7 +12,6 @@ import jakarta.persistence.Table;
 @Table(name = "account")
 public class Account {
 
-   
    private int id;
    private double balance;
    private AccountType tipo;

@@ -23,7 +23,6 @@ public class AccountDTO {
         this.balance = obj.getBalance();
         this.tipo = obj.getTipo();
         this.status = obj.getStatus();
-
     }
 
     public Integer getId() {
