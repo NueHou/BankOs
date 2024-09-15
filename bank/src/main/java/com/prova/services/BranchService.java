@@ -42,13 +42,6 @@ public class BranchService {
         return branchRepo.save(newObj);
     }
 
-    public Branch update(Integer id, BranchDTO objDto){
-        objDto.setId(id);
-        Branch oldObj = findById(id);
-        ValidarPorCnpj(objDto);
-        oldObj = new Branch(objDto);
-        return branchRepo.save(oldObj);
-    }
 
     public void delete(Integer id){
         Branch obj = findById(id);

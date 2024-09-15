@@ -41,13 +41,7 @@ public class BankService {
         return bankRepo.save(newObj);
     }
 
-    public Bank update(Integer id, BankDTO objDto){
-        objDto.setId(id);
-        Bank oldObj = findById(id);
-        ValidarPorCnpj(objDto);
-        oldObj = new Bank(objDto);
-        return bankRepo.save(oldObj);
-    }
+   
 
     public void delete(Integer id){
         Bank obj = findById(id);

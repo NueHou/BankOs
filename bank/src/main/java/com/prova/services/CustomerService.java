@@ -41,14 +41,6 @@ public class CustomerService {
         return customerRepo.save(newObj);
     }
 
-    public Customer update(int id, CustomerDTO objDto){
-        objDto.setId(id);
-        Customer oldObj = findById(id);
-        ValidarPorCpf(objDto);
-        oldObj = new Customer(objDto);
-        return customerRepo.save(oldObj);
-    }
-
     public void delete(int id){
         Customer obj = findById(id);
         obj.getAccount().getStatus();

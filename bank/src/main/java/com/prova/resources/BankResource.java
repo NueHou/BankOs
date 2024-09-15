@@ -50,11 +50,6 @@ public class BankResource {
         return ResponseEntity.ok().body(new BankDTO(obj));
     }
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<BankDTO> update(@PathVariable Integer id, @Valid @RequestBody BankDTO objDto){
-        Bank Obj = bankService.update(id, objDto);
-        return ResponseEntity.ok().body(new BankDTO(Obj));
-    }
 
     @Operation(summary = "Lista por Cnpj", description = "Retorna por Cnpj")
     @GetMapping(value = "/{cnpj}")

@@ -57,11 +57,6 @@ public class CustomerResource {
         return ResponseEntity.created(uri).build();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<CustomerDTO> update(@PathVariable Integer id, @Valid @RequestBody CustomerDTO objDto){
-        Customer obj = customerService.update(id, objDto);
-        return ResponseEntity.ok().body(new CustomerDTO(obj));
-    }
 
     @DeleteMapping
     public ResponseEntity<CustomerDTO> delete(@PathVariable Integer id){

@@ -57,12 +57,6 @@ public class BranchResource {
         return ResponseEntity.created(uri).build();
     }
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<BranchDTO> update(@PathVariable Integer id, @Valid @RequestBody BranchDTO objDto){
-        Branch Obj = branchService.update(id, objDto);
-        return ResponseEntity.ok().body(new BranchDTO(Obj));
-    }
-
     @DeleteMapping
     public ResponseEntity<BranchDTO> delete(@PathVariable Integer id){
         branchService.delete(id);
