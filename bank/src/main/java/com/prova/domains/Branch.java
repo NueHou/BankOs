@@ -1,14 +1,11 @@
 package com.prova.domains;
 
-import java.util.UUID;
 
 
 import com.prova.dtos.BranchDTO;
 
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -18,8 +15,7 @@ import jakarta.persistence.Table;
 public class Branch {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    private Integer id;
     
     private String name;
 
@@ -39,20 +35,18 @@ public class Branch {
         this.cnpj = obj.getCnpj();
     }
 
-    
-
-    public Branch(UUID id, String name, Account account, String cnpj) {
+    public Branch(Integer id, String name, Account account, String cnpj) {
         this.id = id;
         this.name = name;
         this.account = account;
         this.cnpj = cnpj;
     }
 
-    public UUID getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     
@@ -79,6 +73,8 @@ public class Branch {
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
+
+    
 
     
 

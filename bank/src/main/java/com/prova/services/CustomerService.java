@@ -24,20 +24,19 @@ public class CustomerService {
         return customerRepo.findAll().stream().map(obj -> new CustomerDTO()).collect(Collectors.toList());
     }
 
-
-    public Customer findById(Integer id){
+    public Customer findById(int id){
         Optional<Customer> obj = customerRepo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não Encontrado! Id:"+id));
     }
 
-    public Customer create(CustomerDTO objDTO){
-        objDTO.setId(null);
+    public Customer create(int id, CustomerDTO objDTO){
+        objDTO.setId(id);
         ValidarPorCpf(objDTO);
         Customer newObj = new Customer(objDTO);
         return customerRepo.save(newObj);
     }
 
-    public Customer update(Integer id, CustomerDTO objDto){
+    public Customer update(int id, CustomerDTO objDto){
         objDto.setId(id);
         Customer oldObj = findById(id);
         ValidarPorCpf(objDto);
@@ -45,7 +44,7 @@ public class CustomerService {
         return customerRepo.save(oldObj);
     }
 
-    public void delete(Integer id){
+    public void delete(int id){
         Customer obj = findById(id);
         obj.getAccount().getStatus();
         if (obj.getAccount().getStatus() == AccountStatus.ACTIVE) {

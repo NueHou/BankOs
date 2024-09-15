@@ -37,7 +37,7 @@ public class DBService {
 
         Customer customer1 = new Customer(1, "Vera Lucia", "Rua 01", account1, "123.311.313.11");
 
-        Branch branch1 = new Branch(null, "Agencia 01", account1, "1111.3133.0001.12");
+        Branch branch1 = new Branch(1, "Agencia 01", account1, "1111.3133.0001.12");
 
         Bank bank1 = new Bank(1, "Cropss", customer1, "1333.3133.0001.12", branch1);
 
