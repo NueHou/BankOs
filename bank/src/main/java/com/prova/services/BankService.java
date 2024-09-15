@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.prova.domains.Bank;
+import com.prova.domains.enums.AccountStatus;
 import com.prova.dtos.BankDTO;
 import com.prova.repositories.BankRepository;
+import com.prova.services.exceptions.DataIntegrityViolationException;
 import com.prova.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -30,6 +32,37 @@ public class BankService {
     public Bank findByCnpj(String cnpj){
         Optional<Bank> obj = bankRepo.findByCnpj(cnpj);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Banco não encontrado! Cnpj:"+cnpj));
+    }
+
+    public Bank create(Integer id, BankDTO objDTO){
+        objDTO.setId(id);
+        ValidarPorCnpj(objDTO);
+        Bank newObj = new Bank(objDTO);
+        return bankRepo.save(newObj);
+    }
+
+    public Bank update(Integer id, BankDTO objDto){
+        objDto.setId(id);
+        Bank oldObj = findById(id);
+        ValidarPorCnpj(objDto);
+        oldObj = new Bank(objDto);
+        return bankRepo.save(oldObj);
+    }
+
+    public void delete(Integer id){
+        Bank obj = findById(id);
+        obj.getCnpj();
+        if (obj.getCustomers().getAccount().getStatus() == AccountStatus.ACTIVE) {
+            throw new DataIntegrityViolationException("Banco não pode ser deletado pois existem clientes com contas abertas!"); 
+        }
+        bankRepo.deleteById(id);
+    }
+
+    public void ValidarPorCnpj(BankDTO objDto){
+        Optional<Bank> obj = bankRepo.findByCnpj(objDto.getCnpj());
+        if (obj.isPresent() && obj.get().getId() != objDto.getId()) {
+            throw new DataIntegrityViolationException("CNPJ já cadastrado no Sistema!");
+        }
     }
     
 

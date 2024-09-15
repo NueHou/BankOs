@@ -29,6 +29,11 @@ public class CustomerService {
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não Encontrado! Id:"+id));
     }
 
+    public Customer findByCpf(String cpf){
+        Optional<Customer> obj = customerRepo.findByCpf(cpf);
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Cpf não encontrado! Cpf:"+cpf));
+    }
+
     public Customer create(int id, CustomerDTO objDTO){
         objDTO.setId(id);
         ValidarPorCpf(objDTO);
