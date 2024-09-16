@@ -24,7 +24,7 @@ public class CustomerService {
         return customerRepo.findAll().stream().map(obj -> new CustomerDTO()).collect(Collectors.toList());
     }
 
-    public Customer findById(int id){
+    public Customer findById(Integer id){
         Optional<Customer> obj = customerRepo.findById(id);
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não Encontrado! Id:"+id));
     }
