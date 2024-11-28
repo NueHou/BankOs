@@ -23,11 +23,6 @@ public class TransactionService {
         return transactionRepo.findAll().stream().map(obj -> new TransactionDTO()).collect(Collectors.toList());
     }
 
-    public Transaction findById(UUID id){
-        Optional<Transaction> obj = transactionRepo.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Transação não encontarda! id:"+id));
-    }
-
     
     
 

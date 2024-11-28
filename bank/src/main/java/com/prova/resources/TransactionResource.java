@@ -28,10 +28,4 @@ public class TransactionResource {
     public ResponseEntity<List<TransactionDTO>> findAll(){
         return ResponseEntity.ok().body(transactionService.findAll());
     }
-
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<TransactionDTO> findById(@PathVariable UUID id){
-        Transaction obj = this.transactionService.findById(id);
-        return ResponseEntity.ok().body(new TransactionDTO(obj));
-    }
 }

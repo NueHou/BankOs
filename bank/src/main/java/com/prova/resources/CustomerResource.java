@@ -37,14 +37,14 @@ public class CustomerResource {
     }
 
     @Operation(summary = "Lista Por ID", description = "Lista cliente pela ID")
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/customer/id/{id}")
     public ResponseEntity<CustomerDTO> findById(@PathVariable Integer id){
         Customer obj = this.customerService.findById(id);
         return ResponseEntity.ok().body(new CustomerDTO(obj));
     }
 
     @Operation(summary = "Lista por CPF", description = "Lista Clientes por CPF")
-    @GetMapping(value = "/{cpf}")
+    @GetMapping(value = "/customer/cpf/{cpf}")
     public ResponseEntity<CustomerDTO> findByCpf(@PathVariable String cpf){
         Customer obj = this.customerService.findByCpf(cpf);
         return ResponseEntity.ok().body(new CustomerDTO(obj));

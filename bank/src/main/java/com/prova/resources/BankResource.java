@@ -44,7 +44,7 @@ public class BankResource {
     }
 
     @Operation(summary = "Lista por Id", description = "Retorna Por Id")
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/bank/id/{id}")
     public ResponseEntity<BankDTO> findById(@PathVariable Integer id){
         Bank obj = this.bankService.findById(id);
         return ResponseEntity.ok().body(new BankDTO(obj));
@@ -52,7 +52,7 @@ public class BankResource {
 
 
     @Operation(summary = "Lista por Cnpj", description = "Retorna por Cnpj")
-    @GetMapping(value = "/{cnpj}")
+    @GetMapping(value = "/bank/cnpj/{cnpj}")
     public ResponseEntity<BankDTO> findByCnpj(@PathVariable String cnpj){
         Bank obj = this.bankService.findByCnpj(cnpj);
         return ResponseEntity.ok().body(new BankDTO(obj));

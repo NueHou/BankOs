@@ -1,5 +1,6 @@
 package com.prova.domains;
 
+import com.prova.domains.enums.PersonType;
 import com.prova.dtos.CustomerDTO;
 
 import jakarta.persistence.Column;
@@ -8,109 +9,33 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+import java.util.stream.Collectors;
 
 
 @Entity
-@Table(name = "customer")
-public class Customer {
-    
-    
-    @Id
-    private int id;
-    private String name;
-    private String address;
-    @ManyToOne
-    private Account account;
-    @Column(unique = true)
-    private String cpf;
-   
-    public Customer() {
+public class Customer extends Person{
+
+
+    public Customer(Integer id, String password, String email, String cpf, String lastName, String firstName, Account account) {
+        super(id, password, email, cpf, lastName, firstName, account);
+        addPersonType(PersonType.CUSTOMER);
     }
 
     public Customer(CustomerDTO obj) {
         this.id = obj.getId();
-        this.name = obj.getName();
-        this.address = obj.getAddress();
-        this.account = obj.getAccount();
+        this.firstName = obj.getFirstName();
+        this.lastName = obj.getLastName();
         this.cpf = obj.getCpf();
-    }
-
-    public Customer(int id, String name, String address, Account account, String cpf) {
-        this.id = id;
-        this.name = name;
-        this.address = address;
-        this.account = account;
-        this.cpf = cpf;
-    }
-
-    public int getId() {
-        return id;
+        this.email = obj.getEmail();
+        this.password = obj.getPassword();
+        this.account = obj.getAccount();
+        this.personType = obj.getPersonType().stream().map(x -> x.getId()).collect(Collectors.toSet());
+        addPersonType(PersonType.CUSTOMER);
     }
 
 
-
-
-    public void setId(int id) {
-        this.id = id;
+    public Customer(){
+        super();
+        addPersonType(PersonType.CUSTOMER);
     }
-
-
-
-
-    public String getName() {
-        return name;
-    }
-
-
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-
-
-    public String getAddress() {
-        return address;
-    }
-
-
-
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-
-
-
-    public Account getAccount() {
-        return account;
-    }
-
-
-
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
-
-
-
-
-    public String getCpf() {
-        return cpf;
-    }
-
-
-
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-
-
-
 }

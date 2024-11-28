@@ -8,6 +8,7 @@ import com.prova.dtos.AccountDTO;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,7 +22,8 @@ public class Account {
    private AccountStatus status;
 
    public Account() {
-      super();
+
+       super();
    }
 
    public Account(AccountDTO obj) {
