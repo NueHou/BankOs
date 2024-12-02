@@ -3,12 +3,11 @@ package com.prova.domains;
 
 import com.prova.domains.enums.AccountStatus;
 import com.prova.domains.enums.AccountType;
-import com.prova.dtos.AccountDTO;
+import com.prova.domains.dtos.AccountDTO;
 
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,7 +16,7 @@ public class Account {
 
    @Id
    private Integer id;
-   private double balance;
+   private Double balance;
    private AccountType tipo;
    private AccountStatus status;
 

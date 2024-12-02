@@ -1,17 +1,28 @@
-package com.prova.dtos;
+package com.prova.domains.dtos;
 
 
 
 
 import com.prova.domains.Account;
 import com.prova.domains.Branch;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class BranchDTO {
 
     
     protected Integer id;
+
+    @NotNull(message = "O campo nome não pode ser nulo")
+    @NotBlank(message = "O campo nome não pode ser vazio")
     protected String name;
+
+    @NotNull(message = "O campo nome não pode ser nulo")
+    @NotBlank(message = "O campo nome não pode ser vazio")
     protected Account account;
+
+    @NotNull(message = "O campo nome não pode ser nulo")
+    @NotBlank(message = "O campo nome não pode ser vazio")
     protected String cnpj;
     
     

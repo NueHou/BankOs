@@ -1,15 +1,21 @@
-package com.prova.dtos;
+package com.prova.domains.dtos;
 
 
 import com.prova.domains.Account;
 import com.prova.domains.enums.AccountStatus;
 import com.prova.domains.enums.AccountType;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class AccountDTO {
     
     
     protected Integer id;
+
+    @NotNull(message = "O campo nome não pode ser nulo")
+    @NotBlank(message = "O campo nome não pode ser vazio")
     protected double balance;
+
     protected AccountType tipo;
     protected AccountStatus status;
     

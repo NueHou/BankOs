@@ -1,4 +1,4 @@
-package com.prova.dtos;
+package com.prova.domains.dtos;
 
 import java.time.LocalDate;
 import java.util.UUID;

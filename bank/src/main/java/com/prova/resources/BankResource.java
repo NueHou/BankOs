@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.prova.domains.Bank;
-import com.prova.dtos.BankDTO;
+import com.prova.domains.dtos.BankDTO;
 import com.prova.services.BankService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -44,7 +44,7 @@ public class BankResource {
     }
 
     @Operation(summary = "Lista por Id", description = "Retorna Por Id")
-    @GetMapping(value = "/bank/id/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<BankDTO> findById(@PathVariable Integer id){
         Bank obj = this.bankService.findById(id);
         return ResponseEntity.ok().body(new BankDTO(obj));
@@ -52,7 +52,7 @@ public class BankResource {
 
 
     @Operation(summary = "Lista por Cnpj", description = "Retorna por Cnpj")
-    @GetMapping(value = "/bank/cnpj/{cnpj}")
+    @GetMapping(value = "/cnpj/{cnpj}")
     public ResponseEntity<BankDTO> findByCnpj(@PathVariable String cnpj){
         Bank obj = this.bankService.findByCnpj(cnpj);
         return ResponseEntity.ok().body(new BankDTO(obj));

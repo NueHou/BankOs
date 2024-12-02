@@ -1,18 +1,16 @@
 package com.prova.domains;
 
 import com.prova.domains.enums.PersonType;
-import com.prova.dtos.CustomerDTO;
+import com.prova.domains.dtos.CustomerDTO;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 import java.util.stream.Collectors;
 
 
 @Entity
+@Table(name = "customer")
 public class Customer extends Person{
 
 
@@ -28,7 +26,6 @@ public class Customer extends Person{
         this.cpf = obj.getCpf();
         this.email = obj.getEmail();
         this.password = obj.getPassword();
-        this.account = obj.getAccount();
         this.personType = obj.getPersonType().stream().map(x -> x.getId()).collect(Collectors.toSet());
         addPersonType(PersonType.CUSTOMER);
     }
@@ -38,4 +35,5 @@ public class Customer extends Person{
         super();
         addPersonType(PersonType.CUSTOMER);
     }
+
 }

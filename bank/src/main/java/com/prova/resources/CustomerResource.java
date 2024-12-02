@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.prova.domains.Customer;
-import com.prova.dtos.CustomerDTO;
+import com.prova.domains.dtos.CustomerDTO;
 import com.prova.services.CustomerService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -37,16 +37,23 @@ public class CustomerResource {
     }
 
     @Operation(summary = "Lista Por ID", description = "Lista cliente pela ID")
-    @GetMapping(value = "/customer/id/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<CustomerDTO> findById(@PathVariable Integer id){
         Customer obj = this.customerService.findById(id);
         return ResponseEntity.ok().body(new CustomerDTO(obj));
     }
 
     @Operation(summary = "Lista por CPF", description = "Lista Clientes por CPF")
-    @GetMapping(value = "/customer/cpf/{cpf}")
+    @GetMapping(value = "/cpf/{cpf}")
     public ResponseEntity<CustomerDTO> findByCpf(@PathVariable String cpf){
         Customer obj = this.customerService.findByCpf(cpf);
+        return ResponseEntity.ok().body(new CustomerDTO(obj));
+    }
+
+    @Operation(summary = "Lista por email", description = "Lista cliente por emails")
+    @GetMapping(value = "/email/{email}")
+    public ResponseEntity<CustomerDTO> findByEmail(@PathVariable String email){
+        Customer obj = this.customerService.findByEmail(email);
         return ResponseEntity.ok().body(new CustomerDTO(obj));
     }
 

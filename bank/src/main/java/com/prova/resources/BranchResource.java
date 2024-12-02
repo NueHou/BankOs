@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.prova.domains.Branch;
-import com.prova.dtos.BranchDTO;
+import com.prova.domains.dtos.BranchDTO;
 import com.prova.services.BranchService;
 
 import io.swagger.v3.oas.annotations.Operation;

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prova.domains.Account;
-import com.prova.dtos.AccountDTO;
+import com.prova.domains.dtos.AccountDTO;
 import com.prova.services.AccountService;
 
 import io.swagger.v3.oas.annotations.Operation;

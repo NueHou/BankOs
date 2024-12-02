@@ -1,4 +1,4 @@
-package com.prova.dtos;
+package com.prova.domains.dtos;
 
 import com.prova.domains.Account;
 import com.prova.domains.Customer;

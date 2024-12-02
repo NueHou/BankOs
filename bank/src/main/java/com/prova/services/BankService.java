@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.prova.domains.Bank;
 import com.prova.domains.enums.AccountStatus;
-import com.prova.dtos.BankDTO;
+import com.prova.domains.dtos.BankDTO;
 import com.prova.repositories.BankRepository;
 import com.prova.services.exceptions.DataIntegrityViolationException;
 import com.prova.services.exceptions.ObjectNotFoundException;

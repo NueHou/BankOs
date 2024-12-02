@@ -1,7 +1,7 @@
 package com.prova.services;
 
-import com.prova.domains.enums.PersonType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.prova.domains.Account;
@@ -31,12 +31,14 @@ public class DBService {
     private TransactionRepository transactionRepo;
     @Autowired
     private BankRepository bankRepo;
+    @Autowired
+    private BCryptPasswordEncoder encoder;
 
     public void initDB(){
 
         Account account1 = new Account(1, 44.000, AccountType.SAVINGS, AccountStatus.ACTIVE);
 
-        Customer customer1 = new Customer(1, "123", "logan@gmail.com", "123-456-789-12", "mint", "logan", account1);
+        Customer customer1 = new Customer(1, encoder.encode("1234"), "yuri.aleberto@gmail.com", "123.123.123.12", "alberto", "yuri", account1);
 
         Branch branch1 = new Branch(1, "Agencia 01", account1, "1111.3133.0001.12");
 

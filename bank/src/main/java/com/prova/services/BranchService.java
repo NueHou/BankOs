@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.prova.domains.Branch;
 import com.prova.domains.enums.AccountStatus;
-import com.prova.dtos.BranchDTO;
+import com.prova.domains.dtos.BranchDTO;
 import com.prova.repositories.BranchRepository;
 import com.prova.services.exceptions.DataIntegrityViolationException;
 import com.prova.services.exceptions.ObjectNotFoundException;
@@ -22,7 +22,7 @@ public class BranchService {
     private BranchRepository branchRepo;
 
     public List<BranchDTO> findAll(){
-        return branchRepo.findAll().stream().map(obj -> new BranchDTO()).collect(Collectors.toList());
+        return branchRepo.findAll().stream().map(obj -> new BranchDTO(obj)).collect(Collectors.toList());
     }
 
     public Branch findById(Integer id){

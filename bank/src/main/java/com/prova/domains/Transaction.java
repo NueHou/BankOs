@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.prova.domains.enums.TransactionType;
-import com.prova.dtos.TransactionDTO;
+import com.prova.domains.dtos.TransactionDTO;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,6 +27,7 @@ public class Transaction {
     private TransactionType transactionType;
 
     public Transaction() {
+        super();
     }
 
     public Transaction(TransactionDTO obj) {
